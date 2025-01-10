@@ -49,7 +49,7 @@ public class UserController {
     @PostMapping("/login_user")
     public String loginUser(@RequestParam("mail")String mail,@RequestParam("pass")String pass)
     {
-        DoctorInfo doctor = doctorRepo.findByDoctor_mailAndDoctor_pass(mail, pass);
+        DoctorInfo doctor = doctorRepo.findByDoctorMailAndDoctorPass(mail, pass);
         if(doctor==null)
         {
             UserInfo user = userRepo.findByUserMailAndUserPass(mail, pass);

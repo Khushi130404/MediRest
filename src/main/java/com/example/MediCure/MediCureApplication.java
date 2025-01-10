@@ -10,5 +10,4 @@ public class MediCureApplication {
 		SpringApplication.run(MediCureApplication.class, args);
 		System.out.println("Medicure");
 	}
-
 }
