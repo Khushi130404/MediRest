@@ -10,22 +10,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Admin_Info {
+public class AdminInfo {
 
     @Id
     @GeneratedValue
-    int admin_id;
+    int adminId;
 
     @Column
-    String admin_name;
+    String adminName;
 
     @Column
-    String admin_pass;
+    String adminPass;
 
-    public Admin_Info(){}
+    public AdminInfo(){}
 
-    public Admin_Info(String admin_name, String admin_pass) {
-        this.admin_name = admin_name;
-        this.admin_pass = admin_pass;
+    public AdminInfo(String adminName, String adminPass) {
+        this.adminName = adminName;
+        this.adminPass = adminPass;
     }
 }
