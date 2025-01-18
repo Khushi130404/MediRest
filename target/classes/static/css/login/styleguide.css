@@ -1,0 +1,22 @@
+:root {
+  --neutral-01: rgba(255, 255, 255, 1);
+  --neutral-04: rgba(173, 178, 158, 1);
+  --neutral-03: rgba(219, 223, 208, 1);
+  --neutral-07: rgba(44, 47, 36, 1);
+  --neutral-05: rgba(115, 120, 101, 1);
+  --template-colorprimary: rgba(237, 87, 0, 1);
+  --template-colorsecondary: rgba(77, 89, 43, 1);
+  --body-16px-regular-font-family: "DM Sans", Helvetica;
+  --body-16px-regular-font-weight: 400;
+  --body-16px-regular-font-size: 16px;
+  --body-16px-regular-letter-spacing: 0px;
+  --body-16px-regular-line-height: 24px;
+  --body-16px-regular-font-style: normal;
+  --body-16px-bold-font-family: "DM Sans", Helvetica;
+  --body-16px-bold-font-weight: 700;
+  --body-16px-bold-font-size: 16px;
+  --body-16px-bold-letter-spacing: 0px;
+  --body-16px-bold-line-height: 24px;
+  --body-16px-bold-font-style: normal;
+  --2: 0px 2.9787232875823975px 59.574462890625px 0px rgba(0, 0, 0, 0.08);
+}

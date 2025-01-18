@@ -1,0 +1,650 @@
+body {
+  transform: scale(0.8);
+  transform-origin: top left;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.register {
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.register .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1600px;
+  height: 1561px;
+  position: relative;
+}
+
+.register .overlap {
+  position: absolute;
+  width: 1600px;
+  height: 751px;
+  top: 810px;
+  left: 0;
+}
+
+.register .footer {
+  position: absolute;
+  width: 1600px;
+  height: 751px;
+  top: 0;
+  left: 0;
+  background-color: #474747;
+}
+
+.register .content {
+  position: relative;
+  width: 590px;
+  height: 558px;
+  top: 111px;
+  left: 505px;
+}
+
+.register .bottom {
+  position: absolute;
+  width: 373px;
+  height: 23px;
+  top: 535px;
+  left: 83px;
+}
+
+.register .copyright-vansh {
+  position: absolute;
+  width: 371px;
+  top: 0;
+  left: 0;
+  font-family: var(--body-16px-regular-font-family);
+  font-weight: var(--body-16px-regular-font-weight);
+  color: var(--neutral-04);
+  font-size: var(--body-16px-regular-font-size);
+  letter-spacing: var(--body-16px-regular-letter-spacing);
+  line-height: var(--body-16px-regular-line-height);
+  white-space: nowrap;
+  font-style: var(--body-16px-regular-font-style);
+}
+
+.register .top {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 135px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.register .col {
+  flex-direction: column;
+  gap: 30px;
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.register .logo {
+  position: relative;
+  width: 56px;
+  height: 55px;
+}
+
+.register .text-wrapper {
+  position: relative;
+  width: 293px;
+  font-family: var(--body-16px-regular-font-family);
+  font-weight: var(--body-16px-regular-font-weight);
+  color: var(--neutral-04);
+  font-size: var(--body-16px-regular-font-size);
+  letter-spacing: var(--body-16px-regular-letter-spacing);
+  line-height: var(--body-16px-regular-line-height);
+  font-style: var(--body-16px-regular-font-style);
+}
+
+.register .social {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.register .element {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background-color: #ad343e;
+  border-radius: 17.5px;
+}
+
+.register .logo-twitter {
+  position: absolute;
+  width: 14px;
+  height: 11px;
+  top: 12px;
+  left: 11px;
+}
+
+.register .logo-fb-simple {
+  position: absolute;
+  width: 8px;
+  height: 15px;
+  top: 10px;
+  left: 14px;
+}
+
+.register .logo-instagram {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  top: 9px;
+  left: 9px;
+}
+
+.register .logo-github {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 9px;
+  left: 10px;
+}
+
+.register .col-wrapper {
+  gap: 120px;
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.register .col-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.register .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: var(--body-16px-bold-font-family);
+  font-weight: var(--body-16px-bold-font-weight);
+  color: #ffffff;
+  font-size: var(--body-16px-bold-font-size);
+  letter-spacing: var(--body-16px-bold-letter-spacing);
+  line-height: var(--body-16px-bold-line-height);
+  white-space: nowrap;
+  font-style: var(--body-16px-bold-font-style);
+}
+
+.register .list {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.register .text-wrapper-3 {
+  font-family: var(--body-16px-regular-font-family);
+  font-weight: var(--body-16px-regular-font-weight);
+  color: var(--neutral-03);
+  font-size: var(--body-16px-regular-font-size);
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  letter-spacing: var(--body-16px-regular-letter-spacing);
+  line-height: var(--body-16px-regular-line-height);
+  white-space: nowrap;
+  font-style: var(--body-16px-regular-font-style);
+}
+
+.register .text-wrapper-4 {
+  position: relative;
+  width: fit-content;
+  font-family: var(--body-16px-regular-font-family);
+  font-weight: var(--body-16px-regular-font-weight);
+  color: var(--neutral-03);
+  font-size: var(--body-16px-regular-font-size);
+  letter-spacing: var(--body-16px-regular-letter-spacing);
+  line-height: var(--body-16px-regular-line-height);
+  white-space: nowrap;
+  font-style: var(--body-16px-regular-font-style);
+}
+
+.register .logo-title {
+  position: absolute;
+  width: 303px;
+  height: 69px;
+  top: 99px;
+  left: 455px;
+}
+
+.register .overlap-group {
+  position: relative;
+  width: 301px;
+  height: 69px;
+}
+
+.register .website-logo {
+  position: absolute;
+  width: 141px;
+  height: 69px;
+  top: 0;
+  left: 0;
+}
+
+.register .website-title {
+  position: absolute;
+  width: 185px;
+  top: 24px;
+  left: 116px;
+  font-family: "Playfair Display-SemiBoldItalic", Helvetica;
+  font-weight: 600;
+  font-style: italic;
+  color: #fffafa;
+  font-size: 42.7px;
+  letter-spacing: -0.4px;
+  line-height: 29.3px;
+  white-space: nowrap;
+}
+
+.register .overlap-2 {
+  position: absolute;
+  width: 1602px;
+  height: 810px;
+  top: 0;
+  left: 0;
+}
+
+.register .hero {
+  position: absolute;
+  width: 1600px;
+  height: 810px;
+  top: 0;
+  left: 2px;
+}
+
+.register .hero-wrapper {
+  width: 1598px;
+  height: 810px;
+  background-image: url(./img/bg.svg);
+  background-size: 100% 100%;
+}
+
+.register .hero-2 {
+  position: relative;
+  width: 750px;
+  height: 440px;
+  top: 148px;
+  left: 399px;
+}
+
+.register .title {
+  flex-direction: column;
+  height: 64px;
+  justify-content: space-around;
+  gap: 24px;
+  position: absolute;
+  top: 0;
+  left: 318px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.register .text-wrapper-5 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -17.09px;
+  margin-bottom: -15.09px;
+  font-family: "Playfair Display-Regular", Helvetica;
+  font-weight: 400;
+  color: var(--neutral-07);
+  font-size: 48px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 96px;
+}
+
+.register .form {
+  display: flex;
+  flex-direction: column;
+  width: 750px;
+  height: 400px;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px;
+  position: absolute;
+  top: 99px;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--2);
+}
+
+.register .box-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 42px;
+  padding: 10px 0px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.register .box {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  display: flex;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.register .row {
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 24px;
+  display: flex;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.register .element-2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.register .div-wrapper {
+  height: 24px;
+  gap: 10px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.register .text-wrapper-6 {
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "DM Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: var(--neutral-07);
+  font-size: 20px;
+  white-space: nowrap;
+  position: relative;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.register .button-base {
+  justify-content: space-between;
+  padding: 0px 24px;
+  flex: 1;
+  flex-grow: 1;
+  background-color: #ffffff;
+  border-radius: 72px;
+  border: 1px solid;
+  border-color: var(--neutral-03);
+  display: flex;
+  align-items: center;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.register .text-wrapper-7 {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  font-family: var(--body-16px-regular-font-family);
+  font-weight: var(--body-16px-regular-font-weight);
+  color: var(--neutral-05);
+  font-size: var(--body-16px-regular-font-size);
+  position: relative;
+  letter-spacing: var(--body-16px-regular-letter-spacing);
+  line-height: var(--body-16px-regular-line-height);
+  font-style: var(--body-16px-regular-font-style);
+}
+
+.register .text-wrapper-7:focus {
+  border: none;
+  outline: none;
+}
+
+.register .element-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 24px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.register .title-2 {
+  gap: 10px;
+  position: relative;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+}
+
+.register .button {
+  all: unset;
+  box-sizing: border-box;
+  padding: 15px 0px;
+  flex: 0 0 auto;
+  background-color: #ad343e;
+  border-radius: 118px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.register .button:hover {
+  background-color: #74121a;
+}
+
+.register .get-started-now {
+  position: relative;
+  flex: 1;
+  margin-top: -1px;
+  font-family: "DM Sans-Bold", Helvetica;
+  font-weight: 700;
+  color: var(--neutral-01);
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 24px;
+}
+
+.register .text-wrapper-8 {
+  position: relative;
+  align-self: stretch;
+  font-family: "DM Sans-Medium", Helvetica;
+  font-weight: 500;
+  color: #474747;
+  font-size: 21px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 0.1px;
+}
+
+.register .text-wrapper-8:hover {
+  color: #6d6c6c;
+}
+
+.register .header {
+  position: absolute;
+  width: 1600px;
+  height: 145px;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+}
+
+.register .pages-link {
+  position: absolute;
+  width: 662px;
+  height: 98px;
+  top: 15px;
+  left: 890px;
+}
+
+.register .profile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 16px;
+  position: absolute;
+  top: 0;
+  left: 540px;
+  border-radius: 34px;
+}
+
+.register .male-user {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.register .div-wrapper-2 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 16px;
+  position: absolute;
+  top: 33px;
+  left: 417px;
+  border-radius: 34px;
+}
+
+.register .text-wrapper-9 {
+  font-family: "DM Sans-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 24px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.register .login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 16px;
+  position: absolute;
+  top: 33px;
+  left: 325px;
+  border-radius: 34px;
+}
+
+.register .contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 16px;
+  position: absolute;
+  top: 33px;
+  left: 201px;
+  border-radius: 34px;
+}
+
+.register .about {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 16px;
+  position: absolute;
+  top: 33px;
+  left: 99px;
+  border-radius: 34px;
+}
+
+.register .home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 4px 16px;
+  position: absolute;
+  top: 33px;
+  left: 0;
+  border-radius: 34px;
+}
+
+.register .overlap-group-wrapper {
+  position: absolute;
+  width: 303px;
+  height: 93px;
+  top: 26px;
+  left: 23px;
+}
+
+.register .overlap-group-2 {
+  position: relative;
+  width: 301px;
+  height: 93px;
+}
+
+.register .img {
+  position: absolute;
+  width: 141px;
+  height: 93px;
+  top: 0;
+  left: 0;
+}
+
+.register .website-title-2 {
+  position: absolute;
+  width: 185px;
+  top: 33px;
+  left: 116px;
+  font-family: "Playfair Display-SemiBoldItalic", Helvetica;
+  font-weight: 600;
+  font-style: italic;
+  color: #000000;
+  font-size: 42.7px;
+  letter-spacing: -0.4px;
+  line-height: 29.3px;
+  white-space: nowrap;
+}
