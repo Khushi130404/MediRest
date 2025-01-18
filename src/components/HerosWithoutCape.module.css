@@ -1,0 +1,80 @@
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+  background-color: #fffefe;
+}
+
+.content2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  gap: 40px;
+}
+
+.img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+}
+
+.allHeroesWear {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.text {
+  flex: 1;
+  text-align: left;
+}
+
+.title {
+  max-width: 500px;
+}
+
+.p {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.textWrapper5,
+.textWrapper6 {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.button {
+  background-color: #427d9dcd;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #427d9d;
+}
+
+.getStartedNow {
+  font-weight: bold;
+}
