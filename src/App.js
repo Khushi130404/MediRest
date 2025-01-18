@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import HomePage from "./components/HomePage";
+import LoginForm from "./components/LoginForm";
 
 function App() {
   return (
@@ -14,7 +13,7 @@ function App() {
           <Route path="/appointment" element={<h2>Book Appointment</h2>} />
           <Route path="/profile" element={<h2>User Profile</h2>} />
           <Route path="/register" element={<h2>Register</h2>} />
-          <Route path="/login" element={<h2>Login</h2>} />
+          <Route path="/login" element={<LoginForm></LoginForm>} />
         </Routes>
       </div>
       {/* <HomePage></HomePage> */}
