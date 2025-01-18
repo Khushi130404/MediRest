@@ -1,0 +1,67 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 89vh;
+  background-image: url(../../public/image/welcome.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero {
+  background-color: transparent;
+  width: 35%;
+  border-radius: 20px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  text-align: center;
+  padding: 40px;
+}
+
+.textWelcome {
+  margin-bottom: 20px;
+}
+
+.textWrapperWelcome {
+  font-size: 33px;
+  font-weight: bold;
+  color: #164863;
+}
+
+.divWelcome {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.containerBook {
+  background-color: #16486389;
+  padding: 0px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.containerBook:hover {
+  background-color: #164863b9;
+  color: #164863;
+}
+
+.animatedWord {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.animatedWord:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,119 @@
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 60px;
+  background-color: #f4f4f4;
+}
+
+.content3 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.divWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.text2 {
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.overlapGroup2 {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.ellipse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #cacfd0;
+}
+
+.img2,
+.addUserMale,
+.timesheet {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.text3 {
+  margin-bottom: 10px;
+}
+
+.textWrapper7 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #04364a;
+}
+
+.textWrapper8 {
+  font-size: 14px;
+  color: #6f7d81;
+}
+
+.buttonBase {
+  margin-top: 10px;
+}
+
+.pageLink {
+  padding: 10px 0px;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #427d9dcd;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.pageLink:hover {
+  background-color: #427d9d;
+}
+
+.title2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.textWrapper9 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #04364a;
+  margin-bottom: 20px;
+}
