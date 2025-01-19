@@ -2,27 +2,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 89vh;
+  /* background-image: url("../../public/image/leaf.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
   background-color: #f4f4f4;
 }
 
 .form {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 500px;
+  padding: 35px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  /* background-image: url("../../public/image/leaf.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; */
+  width: 600px;
 }
 
-h2 {
+.form h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #164863;
 }
 
 .formGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 17px;
+  /* backdrop-filter: blur(10px); */
 }
 
 .formGroup {
@@ -33,42 +44,58 @@ h2 {
 .formGroupFull {
   grid-column: span 2;
   display: flex;
+  gap: 20px;
   flex-direction: column;
 }
 
-label {
+.form label {
   font-weight: bold;
+  font-size: 15px;
+  color: #04364a;
   margin-bottom: 5px;
 }
 
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
+.form input,
+.form select {
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  height: 40px;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 7px 10px;
 }
 
-textarea {
-  resize: none;
-  height: 60px;
+.form input:focus {
+  outline: none;
 }
 
 .submitButton {
   width: 100%;
-  padding: 12px;
-  background-color: #28a745;
+  padding: 10px;
+  background-color: #427d9dcd;
   color: white;
   border: none;
-  border-radius: 4px;
+  font-weight: bold;
+  border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
 .submitButton:hover {
-  background-color: #218838;
+  background-color: #427d9d;
+}
+
+.loginLink {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #176b87;
+  font-size: 14px;
+}
+
+.loginLink div {
+  margin-top: 10px;
+}
+
+.loginLink:hover {
+  text-decoration: underline;
 }

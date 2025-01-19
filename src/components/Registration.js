@@ -74,7 +74,6 @@ const Registration = () => {
               onChange={handleChange}
               required
             >
-              <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
@@ -124,10 +123,12 @@ const Registration = () => {
             />
           </div>
         </div>
-
         <button type="submit" className={styles.submitButton}>
           Register
         </button>
+        <a className={styles.loginLink} href="/login">
+          <div>Already a user? Click here to Login...</div>
+        </a>
       </form>
     </div>
   );
