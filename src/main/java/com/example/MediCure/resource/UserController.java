@@ -26,16 +26,18 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
-    @PostMapping("/login_user")
-    public String loginUser(@RequestParam("mail")String mail,@RequestParam("pass")String pass)
+    @PostMapping("/login_user/{mail}/{pass}")
+    public ResponseEntity<UserInfo> loginUser(@PathVariable("mail")String mail,@PathVariable("pass")String pass)
+    {
+        UserInfo user = userRepo.findByUserMailAndUserPass(mail, pass);
+        return new ResponseEntity<>(user,HttpStatus.OK);
+
+    }
+
+    @PostMapping("/login_doctor/{mail}/{pass}")
+    public ResponseEntity<DoctorInfo> loginDoctor(@PathVariable("mail")String mail,@PathVariable("pass")String pass)
     {
         DoctorInfo doctor = doctorRepo.findByDoctorMailAndDoctorPass(mail, pass);
-        if(doctor==null)
-        {
-            UserInfo user = userRepo.findByUserMailAndUserPass(mail, pass);
-            if(user!=null) return "home";
-            else return "login_user";
-        }
-        return "home";
+        return new ResponseEntity<>(doctor,HttpStatus.OK);
     }
 }
