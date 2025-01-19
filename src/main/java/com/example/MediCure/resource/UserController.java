@@ -5,13 +5,13 @@ import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.DoctorRepo;
 import com.example.MediCure.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@CrossOrigin("*")
+@RestController
 @RequestMapping(value = "/user")
 public class UserController {
     @Autowired
@@ -19,31 +19,11 @@ public class UserController {
     @Autowired
     DoctorRepo doctorRepo;
 
-    @GetMapping(value = "/")
-    public String getHomePage()
+    @PostMapping("/register")
+    public ResponseEntity<UserInfo> registerUser(@RequestBody UserInfo user)
     {
-        return "home";
-    }
-
-    @PostMapping("/logreg")
-    public String getLogReg(@RequestParam("sub")String sub)
-    {
-        if(sub.equals("Registration"))
-        {
-            return "register_user";
-        }
-        else
-        {
-            return "login_user";
-        }
-    }
-
-    @PostMapping("/register_user")
-    public String registerUser(@RequestParam("name")String name,@RequestParam("mail")String mail,@RequestParam("pass")String pass,@RequestParam("age")String age,@RequestParam("gender")String gender,@RequestParam("mobile")String mobile,@RequestParam("address")String address)
-    {
-        UserInfo user = new UserInfo(name,mail,pass,Integer.parseInt(age),gender,mobile,address);
         userRepo.save(user);
-        return "login_user";
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PostMapping("/login_user")
