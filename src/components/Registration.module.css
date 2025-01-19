@@ -11,7 +11,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 350px;
+  width: 500px;
 }
 
 h2 {
@@ -19,13 +19,25 @@ h2 {
   margin-bottom: 20px;
 }
 
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
 .formGroup {
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroupFull {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
   font-weight: bold;
-  display: block;
   margin-bottom: 5px;
 }
 
@@ -33,9 +45,11 @@ input,
 select,
 textarea {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
+  height: 40px;
 }
 
 textarea {
@@ -43,24 +57,16 @@ textarea {
   height: 60px;
 }
 
-.previewImage {
-  display: block;
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  margin-top: 10px;
-  border-radius: 8px;
-}
-
 .submitButton {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .submitButton:hover {
