@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     UserRepo userRepo;
-    @Autowired
-    DoctorRepo doctorRepo;
+
 
     @PostMapping("/register")
     public ResponseEntity<UserInfo> registerUser(@RequestBody UserInfo user)
@@ -34,10 +33,5 @@ public class UserController {
 
     }
 
-    @PostMapping("/login_doctor/{mail}/{pass}")
-    public ResponseEntity<DoctorInfo> loginDoctor(@PathVariable("mail")String mail,@PathVariable("pass")String pass)
-    {
-        DoctorInfo doctor = doctorRepo.findByDoctorMailAndDoctorPass(mail, pass);
-        return new ResponseEntity<>(doctor,HttpStatus.OK);
-    }
+
 }
