@@ -18,11 +18,11 @@ import java.util.List;
 public class AppointmentController
 {
     @Autowired
-    AppointmentRepo ar;
+    AppointmentRepo appointmentRepo;
 
     @GetMapping(value = "/show")
     public ResponseEntity<List<Appointment>> showAppointment(){
-        List<Appointment> list= ar.findAll();
+        List<Appointment> list= appointmentRepo.findAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }
