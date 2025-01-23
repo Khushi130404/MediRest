@@ -30,4 +30,12 @@ public class AppointmentController
         appointmentRepo.save(appointment);
         return new ResponseEntity<>(appointment,HttpStatus.OK);
     }
+
+    @PostMapping(value = "/delete")
+    public ResponseEntity<Appointment> deleteAppointment(@PathVariable("appId") int appId)
+    {
+        Appointment appointment = appointmentRepo.findByAppId(appId);
+        appointmentRepo.deleteByAppId(appId);
+        return new ResponseEntity<>(appointment,HttpStatus.OK);
+    }
 }
