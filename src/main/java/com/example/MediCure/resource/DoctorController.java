@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/doctor")
@@ -20,5 +22,12 @@ public class DoctorController
     {
         DoctorInfo doctor = doctorRepo.findByDoctorMailAndDoctorPass(mail, pass);
         return new ResponseEntity<>(doctor, HttpStatus.OK);
+    }
+
+    @GetMapping("/show_doctor")
+    public ResponseEntity<List<DoctorInfo>> showDoctor()
+    {
+        List<DoctorInfo> list = doctorRepo.findAll();
+        return new ResponseEntity<>(list,HttpStatus.OK);
     }
 }
