@@ -1,14 +1,12 @@
 package com.example.MediCure.resource;
 
 import com.example.MediCure.model.Appointment;
+import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.AppointmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,12 @@ public class AppointmentController
     public ResponseEntity<List<Appointment>> showAppointment(){
         List<Appointment> list= appointmentRepo.findAll();
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/add")
+    public ResponseEntity<Appointment> bookAppointment(@RequestBody Appointment appointment)
+    {
+        appointmentRepo.save(appointment);
+        return new ResponseEntity<>(appointment,HttpStatus.OK);
     }
 }
