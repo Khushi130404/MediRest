@@ -31,11 +31,11 @@ public class AppointmentController
         return new ResponseEntity<>(appointment,HttpStatus.OK);
     }
 
-    @PostMapping(value = "/delete")
-    public ResponseEntity<Appointment> deleteAppointment(@PathVariable("appId") int appId)
+    @PostMapping(value = "/delete/{appId}")
+    public ResponseEntity<Appointment> deleteAppointment(@PathVariable("appId")String appId)
     {
-        Appointment appointment = appointmentRepo.findByAppId(appId);
-        appointmentRepo.deleteByAppId(appId);
+        Appointment appointment = appointmentRepo.findByAppId(Integer.parseInt(appId));
+        appointmentRepo.deleteByAppId(Integer.parseInt(appId));
         return new ResponseEntity<>(appointment,HttpStatus.OK);
     }
 }
