@@ -9,4 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 public interface DoctorRepo extends JpaRepository<DoctorInfo,Integer>
 {
     public DoctorInfo findByDoctorMailAndDoctorPass(String mail, String pass);
+
+    public DoctorInfo findByDoctorId(int docId);
 }

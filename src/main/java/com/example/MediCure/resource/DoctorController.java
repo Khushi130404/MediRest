@@ -24,6 +24,13 @@ public class DoctorController
         return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
 
+    @PostMapping("/get_doctor/{docId}")
+    public ResponseEntity<DoctorInfo> getDoctorById (@PathVariable("docId")String docId)
+    {
+        DoctorInfo doctorInfo = doctorRepo.findByDoctorId(Integer.parseInt(docId));
+        return new ResponseEntity<>(doctorInfo,HttpStatus.OK);
+    }
+
     @GetMapping("/show_doctor")
     public ResponseEntity<List<DoctorInfo>> showDoctor()
     {
