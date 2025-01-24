@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface UserRepo extends JpaRepository<UserInfo,Integer>
 {
+    public UserInfo findByUserId(int userId);
+
     public UserInfo findByUserMailAndUserPass(String mail,String pass);
 
     @Transactional

@@ -31,8 +31,8 @@ public class UserController {
     @PostMapping("/update_user/{userId}/{name}/{mail}/{age}/{mobile}/{address}/{gender}")
     public ResponseEntity<UserInfo> updateUser(@PathVariable("userId")String userId,@PathVariable("name")String name,@PathVariable("mail")String mail,@PathVariable("age")String age,@PathVariable("mobile")String mobile,@PathVariable("address")String address,@PathVariable("gender")String gender)
     {
-        UserInfo userInfo = userRepo.findByMail(mail);
-        userRepo.updateFromUser(mail,pass,name,Integer.parseInt(age),mobile);
+        UserInfo userInfo = userRepo.findByUserId(Integer.parseInt(userId));
+        userRepo.updateUser(Integer.parseInt(userId),name,mail,Integer.parseInt(age),mobile,address,gender);
         return new ResponseEntity<>(userInfo,HttpStatus.OK);
     }
 }
