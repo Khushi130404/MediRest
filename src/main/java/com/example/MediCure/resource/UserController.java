@@ -28,11 +28,29 @@ public class UserController {
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
 
-    @PostMapping("/update_user/{userId}/{name}/{mail}/{age}/{mobile}/{address}/{gender}")
-    public ResponseEntity<UserInfo> updateUser(@PathVariable("userId")String userId,@PathVariable("name")String name,@PathVariable("mail")String mail,@PathVariable("age")String age,@PathVariable("mobile")String mobile,@PathVariable("address")String address,@PathVariable("gender")String gender)
-    {
-        UserInfo userInfo = userRepo.findByUserId(Integer.parseInt(userId));
-        userRepo.updateUser(Integer.parseInt(userId),name,mail,Integer.parseInt(age),mobile,address,gender);
-        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    @PostMapping("/update_user")
+    public ResponseEntity<?> updateUser(@RequestBody UserInfo updatedUser) {
+        if (updatedUser == null) {
+            return new ResponseEntity<>("Invalid user data", HttpStatus.BAD_REQUEST);
+        }
+
+        UserInfo existingUser = userRepo.findByUserId(updatedUser.getUserId());
+        if (existingUser == null) {
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+
+        userRepo.updateUser(
+                updatedUser.getUserId(),
+                updatedUser.getUserName(),
+                updatedUser.getUserMail(),
+                updatedUser.getUserAge(),
+                updatedUser.getUserMobile(),
+                updatedUser.getUserAddress(),
+                updatedUser.getUserGender()
+        );
+
+        UserInfo latestUser = userRepo.findByUserId(updatedUser.getUserId());
+        return new ResponseEntity<>(latestUser, HttpStatus.OK);
     }
+
 }
