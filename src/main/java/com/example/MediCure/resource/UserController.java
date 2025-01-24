@@ -27,4 +27,12 @@ public class UserController {
         UserInfo user = userRepo.findByUserMailAndUserPass(mail, pass);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
+
+    @PostMapping("/update_user/{userId}/{name}/{mail}/{age}/{mobile}/{address}/{gender}")
+    public ResponseEntity<UserInfo> updateUser(@PathVariable("userId")String userId,@PathVariable("name")String name,@PathVariable("mail")String mail,@PathVariable("age")String age,@PathVariable("mobile")String mobile,@PathVariable("address")String address,@PathVariable("gender")String gender)
+    {
+        UserInfo userInfo = userRepo.findByMail(mail);
+        userRepo.updateFromUser(mail,pass,name,Integer.parseInt(age),mobile);
+        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    }
 }
