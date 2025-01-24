@@ -27,4 +27,30 @@ public class UserController {
         UserInfo user = userRepo.findByUserMailAndUserPass(mail, pass);
         return new ResponseEntity<>(user,HttpStatus.OK);
     }
+
+    @PostMapping("/update_user")
+    public ResponseEntity<?> updateUser(@RequestBody UserInfo updatedUser) {
+        if (updatedUser == null) {
+            return new ResponseEntity<>("Invalid user data", HttpStatus.BAD_REQUEST);
+        }
+
+        UserInfo existingUser = userRepo.findByUserId(updatedUser.getUserId());
+        if (existingUser == null) {
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+
+        userRepo.updateUser(
+                updatedUser.getUserId(),
+                updatedUser.getUserName(),
+                updatedUser.getUserMail(),
+                updatedUser.getUserAge(),
+                updatedUser.getUserMobile(),
+                updatedUser.getUserAddress(),
+                updatedUser.getUserGender()
+        );
+
+        UserInfo latestUser = userRepo.findByUserId(updatedUser.getUserId());
+        return new ResponseEntity<>(latestUser, HttpStatus.OK);
+    }
+
 }

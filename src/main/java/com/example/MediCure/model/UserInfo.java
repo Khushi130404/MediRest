@@ -7,8 +7,6 @@ import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @Entity
 public class UserInfo
 {
@@ -39,6 +37,70 @@ public class UserInfo
         this.userAge = userAge;
         this.userGender = userGender;
         this.userMobile = userMobile;
+        this.userAddress = userAddress;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserMail() {
+        return userMail;
+    }
+
+    public void setUserMail(String userMail) {
+        this.userMail = userMail;
+    }
+
+    public String getUserPass() {
+        return userPass;
+    }
+
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
+    }
+
+    public int getUserAge() {
+        return userAge;
+    }
+
+    public void setUserAge(int userAge) {
+        this.userAge = userAge;
+    }
+
+    public String getUserGender() {
+        return userGender;
+    }
+
+    public void setUserGender(String userGender) {
+        this.userGender = userGender;
+    }
+
+    public String getUserMobile() {
+        return userMobile;
+    }
+
+    public void setUserMobile(String userMobile) {
+        this.userMobile = userMobile;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
     }
 }
