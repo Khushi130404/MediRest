@@ -27,7 +27,7 @@ public class DoctorController
     @PostMapping("/get_doctor/{docId}")
     public ResponseEntity<DoctorInfo> getDoctorById (@PathVariable("docId")String docId)
     {
-        DoctorInfo doctorInfo = null;
+        DoctorInfo doctorInfo = doctorRepo.findByDoctorId(Integer.parseInt(docId));
         return new ResponseEntity<>(doctorInfo,HttpStatus.OK);
     }
 
