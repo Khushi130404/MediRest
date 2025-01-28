@@ -38,4 +38,11 @@ public class AppointmentController
         appointmentRepo.deleteByAppId(Integer.parseInt(appId));
         return new ResponseEntity<>(appointment,HttpStatus.OK);
     }
+
+    @PostMapping(value = "/docApp/{docId}")
+    public ResponseEntity<List<Appointment>> getAppointmentOfDoctor(@PathVariable("docId")String docId)
+    {
+        List<Appointment> list = appointmentRepo.findByDocId(Integer.parseInt(docId));
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
 }
