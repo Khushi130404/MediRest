@@ -45,22 +45,22 @@ public class DoctorController
             return new ResponseEntity<>("Invalid user data", HttpStatus.BAD_REQUEST);
         }
 
-        DoctorInfo existingDoc = doctorRepo.findByDocId(updatedDoc.getDo);
+        DoctorInfo existingDoc = doctorRepo.findByDoctorId(updatedDoc.getDoctorId());
         if (existingDoc == null) {
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
 
-        userRepo.updateUser(
-                updatedUser.getUserId(),
-                updatedUser.getUserName(),
-                updatedUser.getUserMail(),
-                updatedUser.getUserAge(),
-                updatedUser.getUserMobile(),
-                updatedUser.getUserAddress(),
-                updatedUser.getUserGender()
-        );
+//        userRepo.updateUser(
+//                updatedUser.getUserId(),
+//                updatedUser.getUserName(),
+//                updatedUser.getUserMail(),
+//                updatedUser.getUserAge(),
+//                updatedUser.getUserMobile(),
+//                updatedUser.getUserAddress(),
+//                updatedUser.getUserGender()
+//        );
 
-        UserInfo latestUser = userRepo.findByUserId(updatedUser.getUserId());
+        DoctorInfo latestUser = doctorRepo.findByDoctorId(updatedDoc.getDoctorId());
         return new ResponseEntity<>(latestUser, HttpStatus.OK);
     }
 
