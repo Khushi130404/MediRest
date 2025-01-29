@@ -50,15 +50,16 @@ public class DoctorController
             return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
         }
 
-//        userRepo.updateUser(
-//                updatedUser.getUserId(),
-//                updatedUser.getUserName(),
-//                updatedUser.getUserMail(),
-//                updatedUser.getUserAge(),
-//                updatedUser.getUserMobile(),
-//                updatedUser.getUserAddress(),
-//                updatedUser.getUserGender()
-//        );
+        doctorRepo.updateDoctor(
+                updatedDoc.getDoctorId(),
+                updatedDoc.getDoctorName(),
+                updatedDoc.getDoctorMail(),
+                updatedDoc.getDoctorAge(),
+                updatedDoc.getDoctorMobile(),
+                updatedDoc.getDoctorAddress(),
+                updatedDoc.getDoctorGender(),
+                updatedDoc.getSpecialist()
+        );
 
         DoctorInfo latestUser = doctorRepo.findByDoctorId(updatedDoc.getDoctorId());
         return new ResponseEntity<>(latestUser, HttpStatus.OK);
