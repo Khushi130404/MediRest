@@ -53,4 +53,11 @@ public class UserController {
         return new ResponseEntity<>(latestUser, HttpStatus.OK);
     }
 
+    @PostMapping(value = "/userInfo/{userId}")
+    public ResponseEntity<UserInfo> getUserFromUserId(@PathVariable("userId")String userId)
+    {
+        UserInfo userInfo = userRepo.findByUserId(Integer.parseInt(userId));
+        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    }
+
 }
