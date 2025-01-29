@@ -1,6 +1,7 @@
 package com.example.MediCure.resource;
 
 import com.example.MediCure.model.DoctorInfo;
+import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,4 +38,30 @@ public class DoctorController
         List<DoctorInfo> list = doctorRepo.findAll();
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
+
+    @PostMapping("/update_doctor")
+    public ResponseEntity<?> updateDoctor(@RequestBody DoctorInfo updatedDoc) {
+        if (updatedDoc == null) {
+            return new ResponseEntity<>("Invalid user data", HttpStatus.BAD_REQUEST);
+        }
+
+        DoctorInfo existingDoc = doctorRepo.findByDocId(updatedDoc.getDo);
+        if (existingDoc == null) {
+            return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+        }
+
+        userRepo.updateUser(
+                updatedUser.getUserId(),
+                updatedUser.getUserName(),
+                updatedUser.getUserMail(),
+                updatedUser.getUserAge(),
+                updatedUser.getUserMobile(),
+                updatedUser.getUserAddress(),
+                updatedUser.getUserGender()
+        );
+
+        UserInfo latestUser = userRepo.findByUserId(updatedUser.getUserId());
+        return new ResponseEntity<>(latestUser, HttpStatus.OK);
+    }
+
 }

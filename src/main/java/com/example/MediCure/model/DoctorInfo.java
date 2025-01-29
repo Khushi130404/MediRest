@@ -44,4 +44,76 @@ public class DoctorInfo
         this.doctorAddress = doctorAddress;
         this.specialist = specialist;
     }
+
+    public int getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
+
+    public String getDoctorMail() {
+        return doctorMail;
+    }
+
+    public void setDoctorMail(String doctorMail) {
+        this.doctorMail = doctorMail;
+    }
+
+    public String getDoctorPass() {
+        return doctorPass;
+    }
+
+    public void setDoctorPass(String doctorPass) {
+        this.doctorPass = doctorPass;
+    }
+
+    public int getDoctorAge() {
+        return doctorAge;
+    }
+
+    public void setDoctorAge(int doctorAge) {
+        this.doctorAge = doctorAge;
+    }
+
+    public String getDoctorGender() {
+        return doctorGender;
+    }
+
+    public void setDoctorGender(String doctorGender) {
+        this.doctorGender = doctorGender;
+    }
+
+    public String getDoctorMobile() {
+        return doctorMobile;
+    }
+
+    public void setDoctorMobile(String doctorMobile) {
+        this.doctorMobile = doctorMobile;
+    }
+
+    public String getDoctorAddress() {
+        return doctorAddress;
+    }
+
+    public void setDoctorAddress(String doctorAddress) {
+        this.doctorAddress = doctorAddress;
+    }
+
+    public String getSpecialist() {
+        return specialist;
+    }
+
+    public void setSpecialist(String specialist) {
+        this.specialist = specialist;
+    }
 }
