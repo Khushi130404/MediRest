@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -43,6 +45,17 @@ public class AppointmentController
     public ResponseEntity<List<Appointment>> getAppointmentOfDoctor(@PathVariable("docId")String docId)
     {
         List<Appointment> list = appointmentRepo.findByDocId(Integer.parseInt(docId));
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/futureDocApp/{docId}")
+    public ResponseEntity<List<Appointment>> getFutureAppointmentByDocId(@PathVariable("docId")String docId)
+    {
+        LocalDate curDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String currentDate = curDate.format(formatter);
+        System.out.println(curDate);
+        List<Appointment> list = appointmentRepo.getFutureAppointmentByDocId(Integer.parseInt(docId),currentDate);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 }

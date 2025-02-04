@@ -17,4 +17,7 @@ public interface AppointmentRepo  extends JpaRepository<Appointment,Integer> {
     public void deleteByAppId(int appId);
 
     public List<Appointment> findByDocId(int docId);
+
+    @Query("select ap from Appointment ap where ap.docId =:docId AND STR_TO_DATE(ap.date, '%d-%m-%Y')  >= STR_TO_DATE(:currentDate, '%d-%m-%Y')")
+    public List<Appointment> getFutureAppointmentByDocId(int docId,String currentDate);
 }

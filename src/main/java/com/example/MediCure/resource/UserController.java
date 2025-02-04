@@ -59,5 +59,4 @@ public class UserController {
         UserInfo userInfo = userRepo.findByUserId(Integer.parseInt(userId));
         return new ResponseEntity<>(userInfo,HttpStatus.OK);
     }
-
 }
