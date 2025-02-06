@@ -20,9 +20,10 @@ public interface AppointmentRepo  extends JpaRepository<Appointment,Integer> {
 
     public List<Appointment> findByDocId(int docId);
 
-    @Query("select ap from Appointment ap where ap.docId =:docId AND STR_TO_DATE(ap.date, '%d-%m-%Y')  >= STR_TO_DATE(:currentDate, '%d-%m-%Y')")
+    @Query("select ap from Appointment ap where ap.docId = :docId AND STR_TO_DATE(ap.date, '%d-%m-%Y')  >= STR_TO_DATE(:currentDate, '%d-%m-%Y')")
     public List<Appointment> getFutureAppointmentByDocId(int docId,String currentDate);
 
-    @Query("select ap from Appointment ap where ap.docId = :docId and STR_TO_DATE(ap.appointmentDate, '%d-%m-%Y') <= STR_TO_DATE(:date, '%d-%m-%Y') and STR_TO_DATE(ap.appointmentDate, '%d-%m-%Y') >= DATE_SUB(STR_TO_DATE(:date, '%d-%m-%Y'), INTERVAL 1 WEEK)")
-    public List<Appointment> getPastAppointmentByDocId(int docId, String date);
+    @Query(value = "select * from Appointment where doc_id = :docId and STR_TO_DATE(date, '%d-%m-%Y') < STR_TO_DATE(:date, '%d-%m-%Y') and STR_TO_DATE(date, '%d-%m-%Y') >= DATE_SUB(STR_TO_DATE(:date, '%d-%m-%Y'), INTERVAL 1 WEEK)", nativeQuery = true)
+    public List<Appointment> getPastAppointmentByDocId(@Param("docId") int docId, @Param("date") String date);
+
 }
