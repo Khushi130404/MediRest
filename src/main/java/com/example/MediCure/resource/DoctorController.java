@@ -63,5 +63,4 @@ public class DoctorController
         DoctorInfo latestUser = doctorRepo.findByDoctorId(updatedDoc.getDoctorId());
         return new ResponseEntity<>(latestUser, HttpStatus.OK);
     }
-
 }
