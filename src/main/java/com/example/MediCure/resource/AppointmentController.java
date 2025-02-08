@@ -69,4 +69,11 @@ public class AppointmentController
         List<Appointment> list = appointmentRepo.getPastAppointmentByDocId(Integer.parseInt(docId),currentDate);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
+
+    @PostMapping(value = "/allPastDocApp/{docId}")
+    public ResponseEntity<List<Appointment>> getAllPastAppointmentByDocId(@PathVariable("docId")String docId)
+    {
+        List<Appointment> list = appointmentRepo.getAllPastAppointmentByDocId(Integer.parseInt(docId));
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
 }
