@@ -3,18 +3,19 @@ package com.example.MediCure.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Diagnosis {
+public class Diagnosis
+{
     @Id
     @GeneratedValue()
-    private int diagnosisId;
+    public int diagnosisId;
 
     @OneToOne
-    @JoinColumn(name = "appId", referencedColumnName = "appId") // Establish foreign key relationship
-    private Appointment appointment;
+    @JoinColumn(name = "appId", referencedColumnName = "appId")
+    public Appointment appointment;
 
     @Lob
-    private byte[] image;
-
+    @Column(columnDefinition = "LONGBLOB")
+    public byte[] image;
 
     public Diagnosis() {}
 
