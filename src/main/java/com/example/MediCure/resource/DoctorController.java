@@ -33,16 +33,23 @@ public class DoctorController
 
     @PostMapping("/delete_doctor/{docId}")
     public ResponseEntity<String> deleteDoctor(@PathVariable("docId") String docId) {
-        int doctorId = Integer.parseInt(docId);
-        String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        List<Appointment> futureAppointments = appointmentRepo.getFutureAppointmentByDocId(doctorId, currentDate);
-        if (!futureAppointments.isEmpty()) {
-            return new ResponseEntity<>("Doctor cannot be deleted as they have future appointments.", HttpStatus.CONFLICT);
-        }
-        doctorRepo.deleteDoctor(doctorId);
-        return new ResponseEntity<>("Doctor deleted successfully.", HttpStatus.OK);
-    }
+        try {
+            int id = Integer.parseInt(docId);
+            System.out.println("FA");
+            String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+            List<Appointment> futureAppointments = appointmentRepo.getFutureAppointmentByDocId(id, currentDate);
+            if (!futureAppointments.isEmpty()) {
 
+                return ResponseEntity.status(HttpStatus.CONFLICT).body("Doctor cannot be deleted as they have future appointments.");
+            }
+            doctorRepo.deleteDoctor(id);
+            return ResponseEntity.ok("Doctor deleted successfully.");
+        } catch (NumberFormatException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid doctor ID format.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error deleting doctor: " + e.getMessage());
+        }
+    }
 
     @PostMapping("/get_doctor/{docId}")
     public ResponseEntity<DoctorInfo> getDoctorById (@PathVariable("docId")String docId)
