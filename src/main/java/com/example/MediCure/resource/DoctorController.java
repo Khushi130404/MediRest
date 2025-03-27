@@ -1,12 +1,16 @@
 package com.example.MediCure.resource;
 
+import com.example.MediCure.model.Appointment;
 import com.example.MediCure.model.DoctorInfo;
+import com.example.MediCure.repository.AppointmentRepo;
 import com.example.MediCure.repository.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -17,12 +21,28 @@ public class DoctorController
     @Autowired
     DoctorRepo doctorRepo;
 
+    @Autowired
+    AppointmentRepo appointmentRepo;
+
     @PostMapping("/login_doctor/{mail}/{pass}")
     public ResponseEntity<DoctorInfo> loginDoctor(@PathVariable("mail")String mail, @PathVariable("pass")String pass)
     {
         DoctorInfo doctor = doctorRepo.findByDoctorMailAndDoctorPass(mail, pass);
         return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
+
+    @PostMapping("/delete_doctor/{docId}")
+    public ResponseEntity<String> deleteDoctor(@PathVariable("docId") String docId) {
+        int doctorId = Integer.parseInt(docId);
+        String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        List<Appointment> futureAppointments = appointmentRepo.getFutureAppointmentByDocId(doctorId, currentDate);
+        if (!futureAppointments.isEmpty()) {
+            return new ResponseEntity<>("Doctor cannot be deleted as they have future appointments.", HttpStatus.CONFLICT);
+        }
+        doctorRepo.deleteDoctor(doctorId);
+        return new ResponseEntity<>("Doctor deleted successfully.", HttpStatus.OK);
+    }
+
 
     @PostMapping("/get_doctor/{docId}")
     public ResponseEntity<DoctorInfo> getDoctorById (@PathVariable("docId")String docId)
