@@ -2,6 +2,7 @@ package com.example.MediCure.resource;
 
 import com.example.MediCure.model.Appointment;
 import com.example.MediCure.model.DoctorInfo;
+import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.AppointmentRepo;
 import com.example.MediCure.repository.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,4 +90,15 @@ public class DoctorController
         DoctorInfo latestUser = doctorRepo.findByDoctorId(updatedDoc.getDoctorId());
         return new ResponseEntity<>(latestUser, HttpStatus.OK);
     }
+
+    @PostMapping("/add_doctor")
+    public ResponseEntity<?> addDoctor(@RequestBody DoctorInfo doctor) {
+        try {
+            DoctorInfo savedDoctor = doctorRepo.save(doctor);
+            return ResponseEntity.ok(savedDoctor);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+        }
+    }
+
 }
