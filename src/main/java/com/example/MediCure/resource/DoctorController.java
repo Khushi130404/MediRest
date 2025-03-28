@@ -92,9 +92,13 @@ public class DoctorController
     }
 
     @PostMapping("/add_doctor")
-    public ResponseEntity<DoctorInfo> addDoctor(@RequestBody DoctorInfo doctor)
-    {
-        doctorRepo.save(doctor);
-        return new ResponseEntity<>(doctor, HttpStatus.OK);
+    public ResponseEntity<?> addDoctor(@RequestBody DoctorInfo doctor) {
+        try {
+            DoctorInfo savedDoctor = doctorRepo.save(doctor);
+            return ResponseEntity.ok(savedDoctor);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
+        }
     }
+
 }
