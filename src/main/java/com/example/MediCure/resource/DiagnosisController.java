@@ -56,7 +56,4 @@ public class DiagnosisController {
         String base64Image = Base64.getEncoder().encodeToString(diagnosis.getImage());
         return ResponseEntity.ok().body(base64Image);
     }
-
-
-
 }
