@@ -21,7 +21,8 @@ public class SpecialistPredictionModel
     {
         try
         {
-            ClassPathResource resource = new ClassPathResource("data/doctor_specialist_binary_symptoms.csv");
+//            ClassPathResource resource = new ClassPathResource("data/doctor_specialist_binary_symptoms.csv");
+            ClassPathResource resource = new ClassPathResource("data/filtered_output.csv");
             InputStream csvStream = resource.getInputStream();
             CSVLoader loader = new CSVLoader();
             loader.setSource(csvStream);
@@ -45,6 +46,7 @@ public class SpecialistPredictionModel
     {
         try
         {
+            if(model==null) trainModel();
             DenseInstance newInstance = new DenseInstance(1.0, symptomVector);
             newInstance.setDataset(trainingDataset);
             double predictedClassIndex = model.classifyInstance(newInstance);
