@@ -13,7 +13,6 @@ public class MailRepo
 
     public void sendSimpleMessage(String to, String subject, String text) {
         SimpleMailMessage message = new SimpleMailMessage();
-        // message.setFrom("vikaspatni1984@gmail.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(text);
