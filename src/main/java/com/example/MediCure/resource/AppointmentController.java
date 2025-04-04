@@ -1,7 +1,6 @@
 package com.example.MediCure.resource;
 
 import com.example.MediCure.model.Appointment;
-import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.AppointmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
