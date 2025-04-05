@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface AboutRepo extends JpaRepository<AboutInfo, Integer>
 {
-    AboutInfo findByAboutInfo_doctorId(int doctorId);
+    AboutInfo findByDoctorInfo_DoctorId(int doctorId);
 }
