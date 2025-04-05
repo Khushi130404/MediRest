@@ -13,7 +13,8 @@ public class AboutInfo {
     @JoinColumn(name = "doctorId", referencedColumnName = "doctorId")
     private DoctorInfo doctorInfo;
 
-    @Column
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String about;
 
     public AboutInfo() {}
