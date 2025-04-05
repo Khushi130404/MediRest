@@ -32,13 +32,14 @@ public class AboutController
     }
 
     @PostMapping("/addAbout")
-    public ResponseEntity<?> addAboutInfo(@RequestParam int doctorId, @RequestParam String about) {
+    public ResponseEntity<?> addAboutInfo(@RequestParam int doctorId, @RequestParam String about)
+    {
         DoctorInfo doctor = doctorRepo.findById(doctorId).orElse(null);
 
-        if (doctor == null) {
+        if (doctor == null)
+        {
             return new ResponseEntity<>("Doctor not found with ID: " + doctorId, HttpStatus.NOT_FOUND);
         }
-
         AboutInfo aboutInfo = new AboutInfo();
         aboutInfo.setDoctorInfo(doctor);
         aboutInfo.setAbout(about);
@@ -47,4 +48,29 @@ public class AboutController
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
+    @PostMapping("/updateAbout")
+    public ResponseEntity<?> updateAboutInfo(@RequestParam int doctorId, @RequestParam String about)
+    {
+        DoctorInfo doctor = doctorRepo.findById(doctorId).orElse(null);
+        if (doctor == null)
+        {
+            return new ResponseEntity<>("Doctor not found with ID: " + doctorId, HttpStatus.NOT_FOUND);
+        }
+        AboutInfo existingAbout = aboutRepo.findByDoctorInfo_DoctorId(doctorId);
+
+        if (existingAbout != null)
+        {
+            existingAbout.setAbout(about);
+            AboutInfo updated = aboutRepo.save(existingAbout);
+            return new ResponseEntity<>(updated, HttpStatus.OK);
+        }
+        else
+        {
+            AboutInfo newAbout = new AboutInfo();
+            newAbout.setDoctorInfo(doctor);
+            newAbout.setAbout(about);
+            AboutInfo saved = aboutRepo.save(newAbout);
+            return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        }
+    }
 }
