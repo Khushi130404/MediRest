@@ -31,19 +31,20 @@ public class AboutController
         }
     }
 
-    @PostMapping("/add/{doctorId}")
-    public ResponseEntity<?> addAboutInfo(@PathVariable int doctorId, @RequestBody AboutInfo aboutInfoRequest) {
+    @PostMapping("/addAbout")
+    public ResponseEntity<?> addAboutInfo(@RequestParam int doctorId, @RequestParam String about) {
         DoctorInfo doctor = doctorRepo.findById(doctorId).orElse(null);
-        if (doctor == null)
-        {
+
+        if (doctor == null) {
             return new ResponseEntity<>("Doctor not found with ID: " + doctorId, HttpStatus.NOT_FOUND);
         }
 
         AboutInfo aboutInfo = new AboutInfo();
         aboutInfo.setDoctorInfo(doctor);
-        aboutInfo.setAbout(aboutInfoRequest.getAbout());
+        aboutInfo.setAbout(about);
 
         AboutInfo saved = aboutRepo.save(aboutInfo);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
+
 }
