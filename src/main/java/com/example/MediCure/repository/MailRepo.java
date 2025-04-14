@@ -18,5 +18,4 @@ public class MailRepo
         message.setText(text);
         jms.send(message);
     }
-
 }
