@@ -59,4 +59,11 @@ public class UserController {
         UserInfo userInfo = userRepo.findByUserId(Integer.parseInt(userId));
         return new ResponseEntity<>(userInfo,HttpStatus.OK);
     }
+
+    @PostMapping(value = "/byMail/{mail}")
+    public ResponseEntity<UserInfo> getUserFromMail(@PathVariable("mail")String mail)
+    {
+        UserInfo userInfo = userRepo.findByUserMail(mail);
+        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    }
 }
