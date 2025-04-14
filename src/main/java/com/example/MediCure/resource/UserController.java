@@ -60,7 +60,7 @@ public class UserController {
         return new ResponseEntity<>(userInfo,HttpStatus.OK);
     }
 
-    @PostMapping(value = "/byMail/{mail}")
+    @PostMapping(value = "/by_mail/{mail}")
     public ResponseEntity<UserInfo> getUserFromMail(@PathVariable("mail")String mail)
     {
         UserInfo userInfo = userRepo.findByUserMail(mail);
