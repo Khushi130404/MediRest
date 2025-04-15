@@ -14,10 +14,11 @@ public class SmsRepo
     public void send(SmsPojo sms)
     {
         Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-
-        Message message = Message.creator(new PhoneNumber(sms.getTo()), new PhoneNumber(FROM_NUMBER), sms.getMessage())
-                .create();
+        Message message = Message.creator(new PhoneNumber("+91"+sms.getTo()), new PhoneNumber(FROM_NUMBER), sms.getMessage()).create();
         System.out.println("here is my id:"+message.getSid());
     }
+
+    public void receive(MultiValueMap<String, String> smscallback)
+    {}
 }
 
