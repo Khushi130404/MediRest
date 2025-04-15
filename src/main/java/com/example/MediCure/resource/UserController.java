@@ -67,4 +67,11 @@ public class UserController
         UserInfo userInfo = userRepo.findByUserMail(mail);
         return new ResponseEntity<>(userInfo,HttpStatus.OK);
     }
+
+    @PostMapping(value = "/by_mobile/{mobile}")
+    public ResponseEntity<UserInfo> getUserFromMobile(@PathVariable("mobile")String mobile)
+    {
+        UserInfo userInfo = userRepo.findByUserMail(mobile);
+        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    }
 }
