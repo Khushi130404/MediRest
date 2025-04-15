@@ -9,6 +9,6 @@ public class MediCureApplication
 	public static void main(String[] args)
 	{
 		SpringApplication.run(MediCureApplication.class, args);
-		System.out.println("Medicure Hospital");
+		System.out.println("Medicure");
 	}
 }
