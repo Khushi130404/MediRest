@@ -12,6 +12,8 @@ public interface UserRepo extends JpaRepository<UserInfo,Integer>
 
     public UserInfo findByUserMailAndUserPass(String mail,String pass);
 
+    public UserInfo findByUserMobile(String mobile);
+
     public UserInfo findByUserMail(String mail);
 
     @Transactional

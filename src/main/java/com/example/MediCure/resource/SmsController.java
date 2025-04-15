@@ -24,7 +24,7 @@ public class SmsController
 
     private final String  TOPIC_DESTINATION = "/lesson/sms";
 
-    @RequestMapping(value = "/sms", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/sendSMS", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void smsSubmit(@RequestBody SmsPojo sms)
     {
         try
