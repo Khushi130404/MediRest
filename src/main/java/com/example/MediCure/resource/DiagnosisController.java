@@ -14,6 +14,7 @@ import java.util.Base64;
 
 @RestController
 @RequestMapping("/diagnosis")
+@CrossOrigin(origins = "http://localhost:3000")
 public class DiagnosisController {
 
     @Autowired
@@ -23,40 +24,36 @@ public class DiagnosisController {
     private AppointmentRepo appointmentRepo;
 
     @PostMapping("/addDiagnos/{appId}")
-    public ResponseEntity<?> addDiagnosis(@PathVariable int appId, @RequestParam("image") MultipartFile file)
-    {
-        Appointment appointment = appointmentRepo.findById(appId).orElse(null);
-        if (appointment == null) {
-
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found");
-        }
+    public ResponseEntity<?> addDiagnosis(@PathVariable int appId, @RequestParam("image") MultipartFile file) {
         try {
+            Appointment appointment = appointmentRepo.findById(appId).orElse(null);
+            if (appointment == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Appointment not found");
+            }
+
+            if (file.isEmpty()) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("File is empty");
+            }
+
             byte[] imageBytes = file.getBytes();
             Diagnosis diagnosis = new Diagnosis(appointment, imageBytes);
             diagnosisRepo.save(diagnosis);
-            return ResponseEntity.ok(diagnosis);
+
+            return ResponseEntity.ok().body("Diagnosis added successfully!");
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing file");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error processing file: " + e.getMessage());
         }
     }
-//    @PostMapping("/addDiagnos/{appId}/{image}")
-//    public ResponseEntity<Diagnosis> addDiagnosis(@RequestParam int appId, @RequestParam String imgStr)
-//    {
-//        Appointment appointment = appointmentRepo.findById(appId).orElse(null);
-//        if (appointment == null)
-//        {
-//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-//        }
-//        try
-//        {
-//            byte[] image = Base64.getDecoder().decode(imgStr);
-//            Diagnosis diagnosis = new Diagnosis(appointment, image);
-//            diagnosisRepo.save(diagnosis);
-//            return new ResponseEntity<>(diagnosis, HttpStatus.OK);
-//        }
-//        catch (IllegalArgumentException e)
-//        {
-//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
-//        }
-//    }
+
+    @GetMapping("/getDiagnosis/{appId}")
+    public ResponseEntity<?> getDiagnosis(@PathVariable int appId) {
+        Diagnosis diagnosis = diagnosisRepo.findByAppointment_AppId(appId);
+
+        if (diagnosis == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No diagnosis found for this appointment");
+        }
+
+        String base64Image = Base64.getEncoder().encodeToString(diagnosis.getImage());
+        return ResponseEntity.ok().body(base64Image);
+    }
 }

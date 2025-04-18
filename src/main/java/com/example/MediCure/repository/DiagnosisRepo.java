@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DiagnosisRepo extends JpaRepository<Diagnosis, Integer> {
+public interface DiagnosisRepo extends JpaRepository<Diagnosis, Integer>
+{
     Diagnosis findByAppointment_AppId(int appId);
 }

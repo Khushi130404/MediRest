@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 @RestController
 @RequestMapping(value = "/user")
-public class UserController {
+public class UserController
+{
     @Autowired
     UserRepo userRepo;
 
@@ -57,6 +58,20 @@ public class UserController {
     public ResponseEntity<UserInfo> getUserFromUserId(@PathVariable("userId")String userId)
     {
         UserInfo userInfo = userRepo.findByUserId(Integer.parseInt(userId));
+        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/by_mail/{mail}")
+    public ResponseEntity<UserInfo> getUserFromMail(@PathVariable("mail")String mail)
+    {
+        UserInfo userInfo = userRepo.findByUserMail(mail);
+        return new ResponseEntity<>(userInfo,HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/by_mobile/{mobile}")
+    public ResponseEntity<UserInfo> getUserFromMobile(@PathVariable("mobile")String mobile)
+    {
+        UserInfo userInfo = userRepo.findByUserMobile(mobile);
         return new ResponseEntity<>(userInfo,HttpStatus.OK);
     }
 }
