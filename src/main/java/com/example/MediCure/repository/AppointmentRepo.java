@@ -31,4 +31,7 @@ public interface AppointmentRepo  extends JpaRepository<Appointment,Integer> {
 
     @Query("select ap from Appointment ap where ap.userId = :userId AND STR_TO_DATE(ap.date, '%d-%m-%Y') < STR_TO_DATE(:currentDate, '%d-%m-%Y')")
     public List<Appointment> getAllPastAppointmentByUserId(int userId,String currentDate);
+
+    @Query("select ap.docId from Appointment ap where ap.userId = :userId group by ap.docId order by count(ap.docId) desc")
+    public List<Integer> getDocByUser(int userId);
 }

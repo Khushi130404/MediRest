@@ -21,4 +21,7 @@ public interface DoctorRepo extends JpaRepository<DoctorInfo,Integer>
     @Modifying
     @Query("update DoctorInfo di set di.doctorName = :name, di.doctorMail = :mail, di.doctorAge = :age, di.doctorMobile = :mobile, di.doctorAddress = :address, di.doctorGender = :gender, di.specialist = :specialist where di.doctorId = :doctorId")
     public void updateDoctor(int doctorId, String name,String mail,int age,String mobile, String address, String gender,String specialist);
+
+    @Query("select di.doctorName from DoctorInfo di where di.doctorId = :doctorId")
+    public String findDoctorNameById(int doctorId);
 }
