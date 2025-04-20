@@ -2,12 +2,14 @@ package com.example.MediCure.resource;
 
 import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.AppointmentRepo;
+import com.example.MediCure.repository.DoctorRepo;
 import com.example.MediCure.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin("*")
@@ -20,6 +22,9 @@ public class UserController
 
     @Autowired
     AppointmentRepo appointmentRepo;
+
+    @Autowired
+    DoctorRepo doctorRepo;
 
     @PostMapping("/register")
     public ResponseEntity<UserInfo> registerUser(@RequestBody UserInfo user)
@@ -82,20 +87,25 @@ public class UserController
     }
 
     @PostMapping(value = "/fav_doc/{userId}")
-    public  ResponseEntity<?> getFavDocByUseId(@PathVariable("userId")String userId)
-    {
-        try
-        {
+    public ResponseEntity<?> getFavDocByUseId(@PathVariable("userId") String userId) {
+        try {
             List<Integer> favoriteDoctors = appointmentRepo.getDocByUser(Integer.parseInt(userId));
+
             if (favoriteDoctors.isEmpty())
             {
                 return ResponseEntity.status(404).body("No favorite doctors found.");
             }
-            return ResponseEntity.ok(favoriteDoctors);
+            List<String> favDocNames = new ArrayList<>();
+            for (int fd : favoriteDoctors)
+            {
+                favDocNames.add(doctorRepo.findDoctorNameById(fd));
+            }
+            return ResponseEntity.ok(favDocNames);
         }
         catch (Exception e)
         {
             return ResponseEntity.status(500).body("Error retrieving favorite doctors: " + e.getMessage());
         }
     }
+
 }
