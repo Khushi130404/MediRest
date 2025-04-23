@@ -1,7 +1,6 @@
 package com.example.MediCure.resource;
 
 import com.example.MediCure.model.Appointment;
-import com.example.MediCure.model.UserInfo;
 import com.example.MediCure.repository.AppointmentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -78,6 +77,17 @@ public class AppointmentController
         String currentDate = curDate.format(formatter);
         System.out.println(curDate);
         List<Appointment> list = appointmentRepo.getAllPastAppointmentByDocId(Integer.parseInt(docId),currentDate);
+        return new ResponseEntity<>(list,HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/allPastUserApp/{userId}")
+    public ResponseEntity<List<Appointment>> getAllPastAppointmentByUserId(@PathVariable("userId")String userId)
+    {
+        LocalDate curDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String currentDate = curDate.format(formatter);
+        System.out.println(curDate);
+        List<Appointment> list = appointmentRepo.getAllPastAppointmentByUserId(Integer.parseInt(userId),currentDate);
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 }
