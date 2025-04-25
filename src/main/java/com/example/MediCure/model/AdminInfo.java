@@ -10,8 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class AdminInfo {
-
+public class AdminInfo
+{
     @Id
     @GeneratedValue
     int adminId;

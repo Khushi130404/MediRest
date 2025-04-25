@@ -12,9 +12,12 @@ public interface UserRepo extends JpaRepository<UserInfo,Integer>
 
     public UserInfo findByUserMailAndUserPass(String mail,String pass);
 
+    public UserInfo findByUserMobile(String mobile);
+
+    public UserInfo findByUserMail(String mail);
+
     @Transactional
     @Modifying
     @Query("update UserInfo ui set ui.userName = :name, ui.userMail = :mail, ui.userAge = :age, ui.userMobile = :mobile, ui.userAddress = :address, ui.userGender = :gender where ui.userId = :userId")
     public void updateUser(int userId, String name,String mail,int age,String mobile, String address, String gender);
-
 }
