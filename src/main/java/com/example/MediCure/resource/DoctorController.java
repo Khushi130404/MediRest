@@ -40,7 +40,6 @@ public class DoctorController
             String currentDate = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
             List<Appointment> futureAppointments = appointmentRepo.getFutureAppointmentByDocId(id, currentDate);
             if (!futureAppointments.isEmpty()) {
-
                 return ResponseEntity.status(HttpStatus.CONFLICT).body("Doctor cannot be deleted as they have future appointments.");
             }
             doctorRepo.deleteDoctor(id);
